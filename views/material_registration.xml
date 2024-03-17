@@ -98,4 +98,23 @@
         </field>
     </record>
 
+    <record id="material_registration_view_search" model="ir.ui.view">
+        <field name="name">material.registration.view.search</field>
+        <field name="model">material.registration</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="supplier_id"/>
+                <filter string="Fabric" name="fabric" domain="[('material_type', '=', 'fabric')]"/>
+                <filter string="Jeans" name="jeans" domain="[('material_type', '=', 'jeans')]"/>
+                <filter string="Cotton" name="cotton" domain="[('material_type', '=', 'cotton')]"/>
+                <group name="group_by" expand="0" string="Group By">
+                    <filter name="group_material" string="Material Type" context="{'group_by': 'material_type'}"/>
+                    <filter name="group_supplier" string="Supplier" context="{'group_by': 'supplier_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
 </odoo>
