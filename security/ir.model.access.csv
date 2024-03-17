@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_material_registration_user,fajar_odoo_test.material.registration,model_material_registration,fajar_odoo_test.group_material_registration_user,1,1,1,1

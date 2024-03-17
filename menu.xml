@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="material_menu"
+        name="Material"
+        sequence="10"
+        web_icon="fajar_odoo_test,static/description/icon.png" />
+    
+    <menuitem
+        id="material_registration_menu"
+        name="Material Registration"
+        parent="material_menu"
+        action="material_registration_action"
+        sequence="10" />
+    
+    <menuitem
+        id="material_supplier_menu"
+        name="Supplier"
+        action="res_partner_action"
+        parent="material_menu"
+        sequence="20"/>
+
+
+    
+
+</odoo>
