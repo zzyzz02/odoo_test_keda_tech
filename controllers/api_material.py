@@ -85,6 +85,15 @@ class MaterialRegistrationAPI(http.Controller):
                     }
                 params[param] = supplier_id.id
 
+            if param == "buy_price":
+            
+                if not params[param].isnumeric():
+                    return {
+                        "status" : "error",
+                        "message" : "Buy price must be numeric",
+                    }
+                else:
+                    params[param] = float(params[param])
 
             
             data[acceptable_params[param]] = params[param]
@@ -151,6 +160,16 @@ class MaterialRegistrationAPI(http.Controller):
                     "status" : "error",
                     "message" : "Parameter %s is required" % param,
                 }
+            
+            if param == "buy_price":
+            
+                if not params[param].isnumeric():
+                    return {
+                        "status" : "error",
+                        "message" : "Buy price must be numeric",
+                    }
+                else:
+                    params[param] = float(params[param])
 
             data[acceptable_params[param]] = params[param]
         try:    

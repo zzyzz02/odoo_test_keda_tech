@@ -21,19 +21,19 @@ class MaterialRegistration(models.Model):
 
             if duplicate_record:
                 raise ValidationError(_("Code had been use by %s") % duplicate_record.name)
-        if vals.get("buy_price") < 100:
+        if vals.get("buy_price", False) and vals['buy_price'] < 100:
             raise ValidationError(_("Buy price can't be less than 100"))
 
         return super(MaterialRegistration, self).create(vals)        
 
 
     def write(self, vals):
-        if vals.get("code"):
+        if vals.get("code", False):
             duplicate_record = self.search([("code", "=", vals.get("code")), ("id", "!=", self.id)], limit=1)
 
             if duplicate_record:
                 raise ValidationError(_("Code had been use by %s") % duplicate_record.name)
-        if vals.get("buy_price") < 100:
+        if vals.get("buy_price", False) and vals['buy_price'] < 100:
             raise ValidationError(_("Buy price can't be less than 100"))
 
         return super(MaterialRegistration, self).write(vals)
